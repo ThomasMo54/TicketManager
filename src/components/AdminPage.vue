@@ -65,7 +65,7 @@ export default {
     }
   },
   mounted() {
-    axios.post("https://ticket-manager-omni.herokuapp.com:80/user/get-users").then(res => {
+    axios.post("https://ticket-manager-omni.herokuapp.com/user/get-users").then(res => {
       let usersObject = res['data'];
       
       for (const [key, value] of Object.entries(usersObject)) {
@@ -85,7 +85,7 @@ export default {
 
       if(this.username != '' && this.password != '' && this.confirmPassword != '') {
         if(this.password == this.confirmPassword) {
-          axios.post("https://ticket-manager-omni.herokuapp.com:80/user/create-user", {username: this.username, password: this.password, admin: this.adminChecked}).then(res => {
+          axios.post("https://ticket-manager-omni.herokuapp.com/user/create-user", {username: this.username, password: this.password, admin: this.adminChecked}).then(res => {
             if(res['data'] === 'Created') {
               this.users.push({username: this.username, admin: this.adminChecked});
               this.sortUsers();
@@ -109,7 +109,7 @@ export default {
     },
     deleteUser: function(user, index) {
       if(confirm('Etes-vous sûr de vouloir supprimer cet utilisateur ?')) {
-        axios.post("https://ticket-manager-omni.herokuapp.com:80/user/delete-user", {username: user}).then(res => {
+        axios.post("https://ticket-manager-omni.herokuapp.com/user/delete-user", {username: user}).then(res => {
           if(res['data'] === "Success") {
             this.users.splice(index, 1);
           }

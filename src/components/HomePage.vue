@@ -91,7 +91,7 @@ export default {
   mounted() {
     this.username = this.$session.get('username');
     
-    axios.post("https://ticket-manager-omni.herokuapp.com:80/ticket/get-tickets", {number: 50}).then(res => {
+    axios.post("https://ticket-manager-omni.herokuapp.com/ticket/get-tickets", {number: 50}).then(res => {
       if(res['data'] === 'Error') {
         this.error = 'Une erreur est survenue lors de la récuperation des tickets.';
       } else {
@@ -101,7 +101,7 @@ export default {
       }
     });
 
-    axios.post("https://ticket-manager-omni.herokuapp.com:80/user/get-users").then(res => {
+    axios.post("https://ticket-manager-omni.herokuapp.com/user/get-users").then(res => {
       let usersObject = res['data'];
       
       for (const [key, value] of Object.entries(usersObject)) {
@@ -144,7 +144,7 @@ export default {
     },
 
     handleTicket: function(index) {
-      axios.post("https://ticket-manager-omni.herokuapp.com:80/ticket/handle-ticket", {id: this.tickets[index]._id, username: this.username}).then(res => {
+      axios.post("https://ticket-manager-omni.herokuapp.com/ticket/handle-ticket", {id: this.tickets[index]._id, username: this.username}).then(res => {
         if(res['data'] === "Success") {
           this.tickets[index].solver = this.username;
           this.tickets[index].state = 'Pris en charge par ' + this.username;
@@ -153,7 +153,7 @@ export default {
     },
 
     unhandleTicket: function(index) {
-      axios.post("https://ticket-manager-omni.herokuapp.com:80/ticket/unhandle-ticket", {id: this.tickets[index]._id}).then(res => {
+      axios.post("https://ticket-manager-omni.herokuapp.com/ticket/unhandle-ticket", {id: this.tickets[index]._id}).then(res => {
         if(res['data'] === "Success") {
           this.tickets[index].solver = 'Personne';
           this.tickets[index].state = 'En attente';
@@ -162,7 +162,7 @@ export default {
     },
 
     closeTicket: function(index) {
-      axios.post("https://ticket-manager-omni.herokuapp.com:80/ticket/close-ticket", {id: this.tickets[index]._id}).then(res => {
+      axios.post("https://ticket-manager-omni.herokuapp.com/ticket/close-ticket", {id: this.tickets[index]._id}).then(res => {
         if(res['data'] === "Success") {
           this.tickets[index].state = 'Clôturé';
         } 
@@ -171,7 +171,7 @@ export default {
 
     deleteTicket: function(index) {
       if(confirm('Etes-vous sûr de vouloir supprimer ce ticket ?')) {
-        axios.post("https://ticket-manager-omni.herokuapp.com:80/ticket/delete-ticket", {id: this.tickets[index]._id}).then(res => {
+        axios.post("https://ticket-manager-omni.herokuapp.com/ticket/delete-ticket", {id: this.tickets[index]._id}).then(res => {
           if(res['data'] === "Success") {
             this.tickets.splice(index, 1)
           } 
@@ -180,7 +180,7 @@ export default {
     },
 
     getFilteredTickets: function() {
-      axios.post("https://ticket-manager-omni.herokuapp.com:80/ticket/get-tickets", {number: 50, filter: this.sortBy, value: this.sortOption}).then(res => {
+      axios.post("https://ticket-manager-omni.herokuapp.com/ticket/get-tickets", {number: 50, filter: this.sortBy, value: this.sortOption}).then(res => {
         if(res['data'] === 'Error') {
           this.error = 'Une erreur est survenue lors de la récuperation des tickets.';
         } else {
