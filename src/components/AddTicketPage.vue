@@ -57,7 +57,7 @@ export default {
     }
   },
   mounted() {
-    axios.post("http://127.0.0.1:3000/user/get-users").then(res => {
+    axios.post("https://ticket-manager-omni.herokuapp.com:80/user/get-users").then(res => {
       let usersObject = res['data'];
       
       for (const [key, value] of Object.entries(usersObject)) {
@@ -84,7 +84,7 @@ export default {
         let datas = {sender: this.$session.get("username"), claimant: this.claimant, description: this.description, type: this.type, priority: this.priority};
         console.log(datas);
 
-        axios.post("http://127.0.0.1:3000/ticket/create-ticket", datas).then(res => {
+        axios.post("https://ticket-manager-omni.herokuapp.com:80/ticket/create-ticket", datas).then(res => {
           if(res['data'] === 'Error') {
             this.error = "Une erreur est survenue lors de la création du ticket.";
           } else {
