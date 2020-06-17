@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="sort-tickets" v-if="this.tickets.length > 0 && username != ''">
+    <div class="sort-tickets" v-if="username != ''">
       <h2 class="sort-title">Trier par :</h2>
       <select class="sort-by" v-model="sortBy">
         <option selected>Date</option>
