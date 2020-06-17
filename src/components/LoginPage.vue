@@ -136,5 +136,13 @@ export default {
     .login-section {
       width: 80%;
     }
+
+    .login-form h2 {
+      font-size: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
   }
 </style>

@@ -186,8 +186,8 @@ export default {
     .title {
       color: white;
 
-      margin-left: 50px;
-      margin-right: 50px;
+      margin-left: 30px;
+      margin-right: 30px;
       line-height: 60px;
 
       font-size: 20px;

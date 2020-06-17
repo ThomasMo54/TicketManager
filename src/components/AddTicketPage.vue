@@ -197,5 +197,13 @@ export default {
     .add-ticket-section {
       width: 80%;
     }
+
+    .add-ticket-form h2 {
+      font-size: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
   }
 </style>
