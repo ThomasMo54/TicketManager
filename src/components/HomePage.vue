@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="sort-tickets" v-if="this.tickets.length > 0">
+    <div class="sort-tickets" v-if="this.tickets.length > 0 && username != ''">
       <h2 class="sort-title">Trier par :</h2>
       <select class="sort-by" v-model="sortBy">
         <option selected>Date</option>
@@ -89,7 +89,9 @@ export default {
     }
   },
   mounted() {
-    this.username = this.$session.get('username');
+    if(this.$session.exists()) {
+      this.username = this.$session.get('username');
+    }
     
     axios.post("https://ticket-manager-omni.herokuapp.com/ticket/get-tickets", {number: 50}).then(res => {
       if(res['data'] === 'Error') {

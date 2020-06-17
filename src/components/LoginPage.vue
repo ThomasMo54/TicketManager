@@ -35,7 +35,6 @@ export default {
   methods: {
     loginForm: function() {
       axios.post("https://ticket-manager-omni.herokuapp.com/user/login", {username: this.username, password: this.password}).then(res => {
-        console.log(res['data']);
         if(res['data'] === 'Error') {
           this.error = "Le nom d'utilisateur ou le mot de passe est incorrect.";
         } else {
