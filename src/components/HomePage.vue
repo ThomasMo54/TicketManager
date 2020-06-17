@@ -58,8 +58,8 @@
             <p class="state"><strong>Statut : </strong><span>{{ ticket.state }}</span></p>
           </div>
           <div class="ticket-buttons" v-if="ticket.state != 'Clôturé'" :id="index">
-            <button class="handle" v-if="!isSolver(ticket.solver)" @click="handleTicket(index)">Prendre en charge</button>
-            <button class="unhandle" v-else @click="unhandleTicket(index)">Ne plus prendre en charge</button>
+            <button class="handle" v-if="!isSolver(ticket.solver) && ticket.solver == 'Personne'" @click="handleTicket(index)">Prendre en charge</button>
+            <button class="unhandle" v-if="isSolver(ticket.solver)" @click="unhandleTicket(index)">Ne plus prendre en charge</button>
             <button class="close" v-if="isSolver(ticket.solver)" @click="closeTicket(index)">Clôturer</button>
             <button class="delete" v-if="isAdmin()" @click="deleteTicket(index)">Supprimer</button>
           </div>
