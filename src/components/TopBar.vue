@@ -190,7 +190,7 @@ export default {
       margin-right: 50px;
       line-height: 60px;
 
-      font-size: 24px;
+      font-size: 20px;
     }
 
     .user {
@@ -199,7 +199,7 @@ export default {
     }
 
     .username h2 {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .user-menu {

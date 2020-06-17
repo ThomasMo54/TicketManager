@@ -369,6 +369,10 @@ export default {
       font-size: 12px;
     }
 
+    .date {
+      font-size: 10px;
+    }
+
     .ticket-body {
       font-size: 16px;
     }
