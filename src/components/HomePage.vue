@@ -230,8 +230,6 @@ export default {
 
     margin-top: 70px;
     margin-left: 20px;
-
-    width: 100%;
   }
 
   .sort-title {
