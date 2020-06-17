@@ -229,7 +229,7 @@ export default {
     align-items: center;
 
     margin-top: 70px;
-    margin-left: 21px;
+    margin-left: 20px;
   }
 
   .sort-title {
