@@ -4,7 +4,7 @@ const router = express.Router();
 const path = require('path');
 
 const mongoose = require('mongoose');
-const uri = process.env.MONGOLAB_URI || "mongodb+srv://admin:031003Tm@ticketmanager-ahqhu.mongodb.net/TicketManager?retryWrites=true&w=majority";
+const uri = process.env.MONGOLAB_URI || "mongodb+srv://admin:PASSWORD@ticketmanager-ahqhu.mongodb.net/TicketManager?retryWrites=true&w=majority";
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
